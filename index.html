@@ -13,10 +13,7 @@
         document.documentElement.classList.remove('dark');
       }
     </script>
-
-      <!-- Bootstrap Icons -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-
+  
   </head>
   <body>
     <!-- Header Start -->
@@ -509,14 +506,10 @@
     </a>
     <!-- Back to top End -->
 
+    <!-- sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="dist/js/script.js"></script>
-
-
-    <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-    crossorigin="anonymous"
-  ></script>
 
     <script>
       const scriptURL = 'https://script.google.com/macros/s/AKfycbzDLAYRX-fJU1Ov1vmwcMfmF0cY9CldTP8l273ALej5RoJAzdiHDH8CxsQKqlzadNpPdA/exec';
@@ -530,12 +523,19 @@
           .then((response) => {
             // tampilkan tombol kirim, hilangkan tombol loading
             // reset formnya
-            form.reset();
             console.log('Success!', response);
-            alert("Message successfully sent");
+            Swal.fire({
+              text: 'Successfully sent the message',
+              icon: 'success',
+              timer: 2300,
+              timerProgressBar: true
+            });
+            form.reset();
           })
           .catch((error) => console.error('Error!', error.message));
       });
     </script>
+
   </body>
 </html>
+
